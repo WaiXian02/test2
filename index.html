@@ -1,262 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy 520 ♥️</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        /* Centering the scene nicely inside the full web browser screen */
-        body {
-            background: #0e0609;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 520 ♥️</title>
+  <style>
+    /* CSS Reset */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    body {
+      background: #0e0609;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
 
-        #scene {
-          position: relative; 
-          width: 100%; 
-          max-width: 450px; /* Constrains it perfectly on desktop/mobile */
-          height: 560px;
-          overflow: hidden; 
-          display: flex; 
-          flex-direction: column;
-          align-items: center; 
-          justify-content: flex-end;
-          padding-bottom: 44px; 
-          background: #0e0609;
-        }
-        .star {
-          position: absolute; border-radius: 50%; background: #fff; opacity: 0;
-          animation: twinkle 3s infinite;
-        }
-        @keyframes twinkle {
-          0%,100% { opacity:0; transform:scale(0.8); }
-          50% { opacity:0.55; transform:scale(1.3); }
-        }
-        #box-wrap {
-          position: relative; cursor: pointer; width: 150px;
-          user-select: none; transform-origin: bottom center;
-          transition: transform 0.15s ease; z-index: 5;
-        }
-        #box-wrap:hover { transform: scale(1.05); }
-        #box-wrap:active { transform: scale(0.97); }
-        #lid {
-          position: absolute; top: 0; left: -8px;
-          width: 166px; height: 42px; background: #6b1632;
-          border-radius: 6px 6px 0 0;
-          transform-origin: bottom center;
-          transition: transform 0.72s cubic-bezier(0.34,1.4,0.64,1);
-          z-index: 2; border: 1px solid #b84d66;
-        }
-        #lid.open { transform: translateY(-140px) rotate(-42deg); }
-        #lid-ribbon {
-          position: absolute; left: 50%; top: 0;
-          width: 18px; height: 100%; background: #e8a0b4;
-          transform: translateX(-50%); border-radius: 2px;
-        }
-        #box-body {
-          position: relative; width: 150px; height: 110px;
-          background: #6b1632; border-radius: 0 0 10px 10px;
-          margin-top: 38px; z-index: 1;
-          border: 1px solid #b84d66; overflow: hidden;
-        }
-        #box-ribbon-v {
-          position: absolute; left: 50%; top: 0;
-          width: 18px; height: 100%; background: #e8a0b4; transform: translateX(-50%);
-        }
-        #box-ribbon-h {
-          position: absolute; top: 50%; left: 0;
-          width: 100%; height: 18px; background: #e8a0b4; transform: translateY(-50%);
-        }
-        #bow-svg {
-          position: absolute; top: -16px; left: 50%;
-          transform: translateX(-50%); width: 60px; height: 32px;
-          z-index: 3; pointer-events: none;
-        }
-        #hint {
-          margin-top: 16px; font-size: 12px; color: #8a3050;
-          font-family: sans-serif; letter-spacing: 0.1em;
-          transition: opacity 0.5s;
-        }
-        #message {
-          position: absolute; top: 80px; left: 50%;
-          transform: translateX(-50%) scale(0);
-          background: rgba(14,6,9,0.96);
-          border: 1px solid #8a3050; border-radius: 20px;
-          padding: 28px 34px 24px; text-align: center; width: 290px;
-          transition: transform 0.7s cubic-bezier(0.34,1.5,0.64,1) 0.42s;
-          z-index: 20;
-        }
-        #message.show { transform: translateX(-50%) scale(1); }
-        #msg-date {
-          font-size: 11px; letter-spacing: 0.28em; color: #8a3050;
-          font-family: sans-serif; display: block; margin-bottom: 14px;
-        }
-        #msg-headline {
-          font-size: 21px; font-weight: 500; color: #f4c0d1;
-          font-family: serif; display: block;
-          margin-bottom: 16px; line-height: 1.3;
-        }
-        #msg-divider {
-          display: flex; align-items: center;
-          gap: 10px; justify-content: center; margin-bottom: 16px;
-        }
-        #msg-divider span { height: 1px; width: 50px; background: #3d0e1e; display: block; }
-        #msg-divider i { font-size: 12px; color: #b84d66; }
-        #msg-body {
-          font-size: 14px; color: #d48098;
-          font-family: serif; font-style: italic;
-          line-height: 1.95; display: block; margin-bottom: 18px;
-        }
-        #flower-wrap {
-          display: block;
-          margin: 0 auto;
-          animation: sway 2.4s ease-in-out infinite;
-          transform-origin: center bottom;
-        }
-        @keyframes sway {
-          0%   { transform: rotate(-14deg); }
-          50%  { transform: rotate(14deg); }
-          100% { transform: rotate(-14deg); }
-        }
-        canvas#fw {
-          position: absolute; top: 0; left: 0;
-          width: 100%; height: 100%; pointer-events: none; z-index: 10;
-        }
-    </style>
+    #scene {
+      position: relative; 
+      width: 100%; 
+      max-width: 600px; /* Limits width on desktop for better presentation */
+      height: 560px;
+      overflow: hidden; 
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
+      justify-content: flex-end;
+      padding-bottom: 44px; 
+      background: #0e0609;
+      border-radius: 12px;
+    }
+
+    .star {
+      position: absolute; 
+      border-radius: 50%; 
+      background: #fff; 
+      opacity: 0;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 0.55; transform: scale(1.3); }
+    }
+
+    #box-wrap {
+      position: relative; 
+      cursor: pointer; 
+      width: 150px;
+      user-select: none; 
+      transform-origin: bottom center;
+      transition: transform 0.15s ease; 
+      z-index: 5;
+    }
+
+    #box-wrap:hover { transform: scale(1.05); }
+    #box-wrap:active { transform: scale(0.97); }
+
+    #lid {
+      position: absolute; 
+      top: 0; 
+      left: -8px;
+      width: 166px; 
+      height: 42px; 
+      background: #6b1632;
+      border-radius: 6px 6px 0 0;
+      transform-origin: bottom center;
+      transition: transform 0.72s cubic-bezier(0.34, 1.4, 0.64, 1);
+      z-index: 2; 
+      border: 1px solid #b84d66;
+    }
+
+    #lid.open { transform: translateY(-140px) rotate(-42deg); }
+
+    #lid-ribbon {
+      position: absolute; 
+      left: 50%; 
+      top: 0;
+      width: 18px; 
+      height: 100%; 
+      background: #e8a0b4;
+      transform: translateX(-50%); 
+      border-radius: 2px;
+    }
+
+    #box-body {
+      position: relative; 
+      width: 150px; 
+      height: 110px;
+      background: #6b1632; 
+      border-radius: 0 0 10px 10px;
+      margin-top: 38px; 
+      z-index: 1;
+      border: 1px solid #b84d66; 
+      overflow: hidden;
+    }
+
+    #box-ribbon-v {
+      position: absolute; 
+      left: 50%; 
+      top: 0;
+      width: 18px; 
+      height: 100%; 
+      background: #e8a0b4; 
+      transform: translateX(-50%);
+    }
+
+    #box-ribbon-h {
+      position: absolute; 
+      top: 50%; 
+      left: 0;
+      width: 100%; 
+      height: 18px; 
+      background: #e8a0b4; 
+      transform: translateY(-50%);
+    }
+
+    #bow-svg {
+      position: absolute; 
+      top: -16px; 
+      left: 50%;
+      transform: translateX(-50%); 
+      width: 60px; 
+      height: 32px;
+      z-index: 3; 
+      pointer-events: none;
+    }
+
+    #hint {
+      margin-top: 16px; 
+      font-size: 12px; 
+      color: #8a3050;
+      font-family: sans-serif; 
+      letter-spacing: 0.1em;
+      transition: opacity 0.5s;
+    }
+
+    #message {
+      position: absolute; 
+      top: 40px; 
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      background: rgba(14, 6, 9, 0.96);
+      border: 1px solid #8a3050; 
+      border-radius: 20px;
+      padding: 28px 34px 24px; 
+      text-align: center; 
+      width: 290px;
+      transition: transform 0.7s cubic-bezier(0.34, 1.5, 0.64, 1) 0.42s;
+      z-index: 20;
+    }
+
+    #message.show { transform: translateX(-50%) scale(1); }
+
+    #msg-date {
+      font-size: 11px; 
+      letter-spacing: 0.28em; 
+      color: #8a3050;
+      font-family: sans-serif; 
+      display: block; 
+      margin-bottom: 14px;
+    }
+
+    #msg-headline {
+      font-size: 21px; 
+      font-weight: 500; 
+      color: #f4c0d1;
+      font-family: serif; 
+      display: block;
+      margin-bottom: 16px; 
+      line-height: 1.3;
+    }
+
+    #msg-divider {
+      display: flex; 
+      align-items: center;
+      gap: 10px; 
+      justify-content: center; 
+      margin-bottom: 16px;
+    }
+
+    #msg-divider span { 
+      height: 1px; 
+      width: 50px; 
+      background: #3d0e1e; 
+      display: block; 
+    }
+
+    #msg-divider i { 
+      font-size: 12px; 
+      color: #b84d66; 
+      font-style: normal;
+    }
+
+    #msg-body {
+      font-size: 14px; 
+      color: #d48098;
+      font-family: serif; 
+      font-style: italic;
+      line-height: 1.95; 
+      display: block; 
+      margin-bottom: 18px;
+    }
+
+    #flower-wrap {
+      display: block; 
+      margin: 0 auto;
+      animation: sway 2.4s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes sway {
+      0%   { transform: rotate(-14deg); }
+      50%  { transform: rotate(14deg); }
+      100% { transform: rotate(-14deg); }
+    }
+
+    canvas#fw {
+      position: absolute; 
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%; 
+      pointer-events: none; 
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
 
-<div id="scene">
-  <canvas id="fw"></canvas>
+  <div id="scene">
+    <canvas id="fw"></canvas>
 
-  <div id="message">
-    <span id="msg-date">✦ &nbsp; 5 · 2 · 0 &nbsp; ✦</span>
-    <span id="msg-headline">Happy 520, my dear</span>
-    <div id="msg-divider"><span></span><i>♡</i><span></span></div>
-    <span id="msg-body">
-      This may not be something very big,<br>
-      but I hope you know that<br>
-      you are very precious to me —<br>
-      and every day with you<br>
-      is a gift.
-    </span>
-    <svg id="flower-wrap" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="22" y1="52" x2="22" y2="26" stroke="#5DCAA5" stroke-width="2.5" stroke-linecap="round"/>
-      <ellipse cx="12" cy="38" rx="7" ry="3.5" fill="#5DCAA5" transform="rotate(-35 12 38)"/>
-      <ellipse cx="32" cy="36" rx="7" ry="3.5" fill="#5DCAA5" transform="rotate(35 32 36)"/>
-      <ellipse cx="22" cy="14" rx="5" ry="8" fill="#e8a0b4"/>
-      <ellipse cx="22" cy="14" rx="8" ry="5" fill="#e8a0b4"/>
-      <ellipse cx="14.5" cy="8.5" rx="5" ry="8" fill="#f4c0d1" transform="rotate(-45 14.5 8.5)"/>
-      <ellipse cx="29.5" cy="8.5" rx="5" ry="8" fill="#f4c0d1" transform="rotate(45 29.5 8.5)"/>
-      <ellipse cx="14.5" cy="19.5" rx="5" ry="8" fill="#ed93b1" transform="rotate(45 14.5 19.5)"/>
-      <ellipse cx="29.5" cy="19.5" rx="5" ry="8" fill="#ed93b1" transform="rotate(-45 29.5 19.5)"/>
-      <circle cx="22" cy="14" r="5" fill="#FAC775"/>
-      <circle cx="22" cy="14" r="2.5" fill="#EF9F27"/>
-    </svg>
-  </div>
-
-  <div id="box-wrap" onclick="openBox()" title="Tap to open">
-    <svg id="bow-svg" viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="16" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(-28 16 16)"/>
-      <ellipse cx="44" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(28 44 16)"/>
-      <ellipse cx="30" cy="16" rx="8" ry="8" fill="#e8a0b4"/>
-      <ellipse cx="30" cy="16" rx="4.5" ry="4.5" fill="#b84d66"/>
-    </svg>
-    <div id="lid"><div id="lid-ribbon"></div></div>
-    <div id="box-body">
-      <div id="box-ribbon-v"></div>
-      <div id="box-ribbon-h"></div>
+    <div id="message">
+      <span id="msg-date">✦ &nbsp; 5 · 2 · 0 &nbsp; ✦</span>
+      <span id="msg-headline">Happy 520, my dear</span>
+      <div id="msg-divider"><span></span><i>♡</i><span></span></div>
+      <span id="msg-body">
+        This may not be something very big,<br>
+        but I hope you know that<br>
+        you are very precious to me —<br>
+        and every day with you<br>
+        is a gift.
+      </span>
+      <svg id="flower-wrap" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="22" y1="52" x2="22" y2="26" stroke="#7a9c6e" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="12" cy="38" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(-35 12 38)"/>
+        <ellipse cx="32" cy="36" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(35 32 36)"/>
+        <ellipse cx="22" cy="14" rx="5" ry="8" fill="#c9b8e8"/>
+        <ellipse cx="22" cy="14" rx="8" ry="5" fill="#c9b8e8"/>
+        <ellipse cx="14.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 14.5 8.5)"/>
+        <ellipse cx="29.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 29.5 8.5)"/>
+        <ellipse cx="14.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 14.5 19.5)"/>
+        <ellipse cx="29.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 29.5 19.5)"/>
+        <circle cx="22" cy="14" r="5" fill="#FAC775"/>
+        <circle cx="22" cy="14" r="2.5" fill="#EF9F27"/>
+      </svg>
     </div>
+
+    <div id="box-wrap" onclick="openBox()" title="Tap to open">
+      <svg id="bow-svg" viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(-28 16 16)"/>
+        <ellipse cx="44" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(28 44 16)"/>
+        <ellipse cx="30" cy="16" rx="8" ry="8" fill="#e8a0b4"/>
+        <ellipse cx="30" cy="16" rx="4.5" ry="4.5" fill="#b84d66"/>
+      </svg>
+      <div id="lid"><div id="lid-ribbon"></div></div>
+      <div id="box-body">
+        <div id="box-ribbon-v"></div>
+        <div id="box-ribbon-h"></div>
+      </div>
+    </div>
+    <div id="hint">tap to open ♡</div>
   </div>
-  <div id="hint">tap to open ♡</div>
-</div>
 
-<script>
-const scene = document.getElementById('scene');
-const canvas = document.getElementById('fw');
-const ctx = canvas.getContext('2d');
-let particles = [], opened = false;
+  <script>
+    const scene = document.getElementById('scene');
+    const canvas = document.getElementById('fw');
+    const ctx = canvas.getContext('2d');
+    let particles = [], opened = false;
 
-function resize() { canvas.width = scene.offsetWidth; canvas.height = scene.offsetHeight; }
-window.addEventListener('resize', resize);
-resize();
+    function resize() { 
+      canvas.width = scene.offsetWidth; 
+      canvas.height = scene.offsetHeight; 
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
-for (let i = 0; i < 65; i++) {
-  const s = document.createElement('div');
-  s.className = 'star';
-  const sz = Math.random()*2.2+0.6;
-  s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*78}%;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*2.5}s`;
-  scene.insertBefore(s, scene.firstChild);
-}
+    // Generate background stars
+    for (let i = 0; i < 65; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random() * 2.2 + 0.6;
+      s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random() * 100}%;top:${Math.random() * 78}%;animation-delay:${Math.random() * 4}s;animation-duration:${2 + Math.random() * 2.5}s`;
+      scene.insertBefore(s, scene.firstChild);
+    }
 
-const PAL = ['#f4c0d1','#e8a0b4','#c2546e','#993556','#fde8f0','#f9d4e2','#ed93b1','#fff0f5'];
+    const PAL = ['#c9b8e8','#b8a3e0','#d4c8f0','#a98fd8','#ede8f8','#c9b8e8','#d4c8f0','#f0ecfc'];
 
-function spawnBurst(x, y) {
-  for (let i = 0; i < 62; i++) {
-    const angle = (Math.PI*2/62)*i + Math.random()*0.18;
-    const spd = 1.8 + Math.random()*4.2;
-    const t = Math.random();
-    particles.push({
-      x, y, vx: Math.cos(angle)*spd, vy: Math.sin(angle)*spd - 1.2,
-      r: 2.5+Math.random()*3.5,
-      color: PAL[Math.floor(Math.random()*PAL.length)],
-      life: 1, decay: 0.008+Math.random()*0.008,
-      shape: t>0.6?'heart':t>0.35?'circle':'rect',
-      rot: Math.random()*Math.PI*2, rotV:(Math.random()-0.5)*0.13
-    });
-  }
-}
+    function spawnBurst(x, y) {
+      for (let i = 0; i < 62; i++) {
+        const angle = (Math.PI * 2 / 62) * i + Math.random() * 0.18;
+        const spd = 1.8 + Math.random() * 4.2;
+        const t = Math.random();
+        particles.push({
+          x, y, vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd - 1.2,
+          r: 2.5 + Math.random() * 3.5,
+          color: PAL[Math.floor(Math.random() * PAL.length)],
+          life: 1, decay: 0.008 + Math.random() * 0.008,
+          shape: t > 0.6 ? 'heart' : t > 0.35 ? 'circle' : 'rect',
+          rot: Math.random() * Math.PI * 2, rotV: (Math.random() - 0.5) * 0.13
+        });
+      }
+    }
 
-function drawHeart(x,y,r) {
-  ctx.save(); ctx.translate(x,y);
-  ctx.beginPath();
-  ctx.moveTo(0,-r*0.5);
-  ctx.bezierCurveTo(r*0.6,-r*1.2,r*1.4,0,0,r);
-  ctx.bezierCurveTo(-r*1.4,0,-r*0.6,-r*1.2,0,-r*0.5);
-  ctx.fill(); ctx.restore();
-}
+    function drawHeart(x, y, r) {
+      ctx.save(); 
+      ctx.translate(x, y);
+      ctx.beginPath();
+      ctx.moveTo(0, -r * 0.5);
+      ctx.bezierCurveTo(r * 0.6, -r * 1.2, r * 1.4, 0, 0, r);
+      ctx.bezierCurveTo(-r * 1.4, 0, -r * 0.6, -r * 1.2, 0, -r * 0.5);
+      ctx.fill(); 
+      ctx.restore();
+    }
 
-function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles = particles.filter(p=>p.life>0);
-  for (const p of particles) {
-    ctx.save();
-    ctx.globalAlpha = Math.max(0,p.life*p.life);
-    ctx.fillStyle = p.color;
-    if (p.shape==='heart') drawHeart(p.x,p.y,p.r);
-    else if (p.shape==='circle') { ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); }
-    else { ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.fillRect(-p.r*0.4,-p.r,p.r*0.8,p.r*2); }
-    ctx.restore();
-    p.x+=p.vx; p.y+=p.vy; p.vy+=0.06; p.vx*=0.988;
-    p.life-=p.decay; p.rot+=p.rotV;
-  }
-  if (particles.length>0) requestAnimationFrame(animate);
-}
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles = particles.filter(p => p.life > 0);
+      for (const p of particles) {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.life * p.life);
+        ctx.fillStyle = p.color;
+        if (p.shape === 'heart') drawHeart(p.x, p.y, p.r);
+        else if (p.shape === 'circle') { 
+          ctx.beginPath(); 
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); 
+          ctx.fill(); 
+        } else { 
+          ctx.translate(p.x, p.y); 
+          ctx.rotate(p.rot); 
+          ctx.fillRect(-p.r * 0.4, -p.r, p.r * 0.8, p.r * 2); 
+        }
+        ctx.restore();
+        p.x += p.vx; 
+        p.y += p.vy; 
+        p.vy += 0.06; 
+        p.vx *= 0.988;
+        p.life -= p.decay; 
+        p.rot += p.rotV;
+      }
+      if (particles.length > 0) requestAnimationFrame(animate);
+    }
 
-function launch() {
-  const w=canvas.width, h=canvas.height;
-  [[w*.18,h*.2],[w*.5,h*.1],[w*.82,h*.2],[w*.33,h*.3],[w*.67,h*.27]]
-    .forEach(([x,y],i)=>setTimeout(()=>{spawnBurst(x,y);animate();},i*160));
-  setTimeout(()=>{spawnBurst(w*.1,h*.16);spawnBurst(w*.9,h*.16);spawnBurst(w*.5,h*.07);animate();},1000);
-  setTimeout(()=>{spawnBurst(w*.28,h*.13);spawnBurst(w*.72,h*.13);animate();},1800);
-  setTimeout(()=>{spawnBurst(w*.5,h*.17);animate();},2500);
-}
+    function launch() {
+      const w = canvas.width, h = canvas.height;
+      [[w * .18, h * .2], [w * .5, h * .1], [w * .82, h * .2], [w * .33, h * .3], [w * .67, h * .27]]
+        .forEach(([x, y], i) => setTimeout(() => { spawnBurst(x, y); animate(); }, i * 160));
+      
+      setTimeout(() => { 
+        spawnBurst(w * .1, h * .16); 
+        spawnBurst(w * .9, h * .16); 
+        spawnBurst(w * .5, h * .07); 
+        animate(); 
+      }, 1000);
+      
+      setTimeout(() => { 
+        spawnBurst(w * .28, h * .13); 
+        spawnBurst(w * .72, h * .13); 
+        animate(); 
+      }, 1800);
+      
+      setTimeout(() => { 
+        spawnBurst(w * .5, h * .17); 
+        animate(); 
+      }, 2500);
+    }
 
-function openBox() {
-  if (opened) return;
-  opened=true; resize();
-  document.getElementById('lid').classList.add('open');
-  document.getElementById('hint').style.opacity='0';
-  setTimeout(()=>document.getElementById('message').classList.add('show'),80);
-  setTimeout(launch,360);
-}
-</script>
-
+    function openBox() {
+      if (opened) return;
+      opened = true; 
+      resize();
+      document.getElementById('lid').classList.add('open');
+      document.getElementById('hint').style.opacity = '0';
+      setTimeout(() => document.getElementById('message').classList.add('show'), 80);
+      setTimeout(launch, 360);
+    }
+  </script>
 </body>
 </html>
