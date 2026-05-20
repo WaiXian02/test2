@@ -5,26 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy 520 ♥️</title>
   <style>
-    /* CSS Reset */
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
       background: #0e0609;
-      min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      overflow-x: hidden;
+      align-items: center;
+      min-height: 100vh;
+      font-family: sans-serif;
     }
 
     #scene {
       position: relative; 
       width: 100%; 
-      max-width: 600px; /* Limits width on desktop for better presentation */
+      max-width: 500px;
       height: 560px;
       overflow: hidden; 
       display: flex; 
@@ -136,7 +131,6 @@
       margin-top: 16px; 
       font-size: 12px; 
       color: #8a3050;
-      font-family: sans-serif; 
       letter-spacing: 0.1em;
       transition: opacity 0.5s;
     }
@@ -162,7 +156,6 @@
       font-size: 11px; 
       letter-spacing: 0.28em; 
       color: #8a3050;
-      font-family: sans-serif; 
       display: block; 
       margin-bottom: 14px;
     }
@@ -171,7 +164,6 @@
       font-size: 21px; 
       font-weight: 500; 
       color: #f4c0d1;
-      font-family: serif; 
       display: block;
       margin-bottom: 16px; 
       line-height: 1.3;
@@ -185,23 +177,12 @@
       margin-bottom: 16px;
     }
 
-    #msg-divider span { 
-      height: 1px; 
-      width: 50px; 
-      background: #3d0e1e; 
-      display: block; 
-    }
-
-    #msg-divider i { 
-      font-size: 12px; 
-      color: #b84d66; 
-      font-style: normal;
-    }
+    #msg-divider span { height: 1px; width: 50px; background: #3d0e1e; display: block; }
+    #msg-divider i { font-size: 12px; color: #b84d66; font-style: normal; }
 
     #msg-body {
       font-size: 14px; 
       color: #d48098;
-      font-family: serif; 
       font-style: italic;
       line-height: 1.95; 
       display: block; 
@@ -234,163 +215,140 @@
 </head>
 <body>
 
-  <div id="scene">
-    <canvas id="fw"></canvas>
+<div id="scene">
+  <canvas id="fw"></canvas>
 
-    <div id="message">
-      <span id="msg-date">✦ &nbsp; 5 · 2 · 0 &nbsp; ✦</span>
-      <span id="msg-headline">Happy 520, my dear</span>
-      <div id="msg-divider"><span></span><i>♡</i><span></span></div>
-      <span id="msg-body">
-        This may not be something very big,<br>
-        but I hope you know that<br>
-        you are very precious to me —<br>
-        and every day with you<br>
-        is a gift.
-      </span>
-      <svg id="flower-wrap" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="22" y1="52" x2="22" y2="26" stroke="#7a9c6e" stroke-width="2.5" stroke-linecap="round"/>
-        <ellipse cx="12" cy="38" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(-35 12 38)"/>
-        <ellipse cx="32" cy="36" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(35 32 36)"/>
-        <ellipse cx="22" cy="14" rx="5" ry="8" fill="#c9b8e8"/>
-        <ellipse cx="22" cy="14" rx="8" ry="5" fill="#c9b8e8"/>
-        <ellipse cx="14.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 14.5 8.5)"/>
-        <ellipse cx="29.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 29.5 8.5)"/>
-        <ellipse cx="14.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 14.5 19.5)"/>
-        <ellipse cx="29.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 29.5 19.5)"/>
-        <circle cx="22" cy="14" r="5" fill="#FAC775"/>
-        <circle cx="22" cy="14" r="2.5" fill="#EF9F27"/>
-      </svg>
-    </div>
-
-    <div id="box-wrap" onclick="openBox()" title="Tap to open">
-      <svg id="bow-svg" viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="16" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(-28 16 16)"/>
-        <ellipse cx="44" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(28 44 16)"/>
-        <ellipse cx="30" cy="16" rx="8" ry="8" fill="#e8a0b4"/>
-        <ellipse cx="30" cy="16" rx="4.5" ry="4.5" fill="#b84d66"/>
-      </svg>
-      <div id="lid"><div id="lid-ribbon"></div></div>
-      <div id="box-body">
-        <div id="box-ribbon-v"></div>
-        <div id="box-ribbon-h"></div>
-      </div>
-    </div>
-    <div id="hint">tap to open ♡</div>
+  <div id="message">
+    <span id="msg-date">✦ &nbsp; 5 · 2 · 0 &nbsp; ✦</span>
+    <span id="msg-headline">Happy 520, my dear</span>
+    <div id="msg-divider"><span></span><i>♡</i><span></span></div>
+    <span id="msg-body">
+      This may not be something very big,<br>
+      but I hope you know that<br>
+      you are very precious to me —<br>
+      and every day with you<br>
+      is a gift.
+    </span>
+    <svg id="flower-wrap" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="22" y1="52" x2="22" y2="26" stroke="#7a9c6e" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="12" cy="38" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(-35 12 38)"/>
+      <ellipse cx="32" cy="36" rx="7" ry="3.5" fill="#7a9c6e" transform="rotate(35 32 36)"/>
+      <ellipse cx="22" cy="14" rx="5" ry="8" fill="#c9b8e8"/>
+      <ellipse cx="22" cy="14" rx="8" ry="5" fill="#c9b8e8"/>
+      <ellipse cx="14.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 14.5 8.5)"/>
+      <ellipse cx="29.5" cy="8.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 29.5 8.5)"/>
+      <ellipse cx="14.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(45 14.5 19.5)"/>
+      <ellipse cx="29.5" cy="19.5" rx="5" ry="8" fill="#c9b8e8" transform="rotate(-45 29.5 19.5)"/>
+      <circle cx="22" cy="14" r="5" fill="#FAC775"/>
+      <circle cx="22" cy="14" r="2.5" fill="#EF9F27"/>
+    </svg>
   </div>
 
-  <script>
-    const scene = document.getElementById('scene');
-    const canvas = document.getElementById('fw');
-    const ctx = canvas.getContext('2d');
-    let particles = [], opened = false;
+  <div id="box-wrap" onclick="openBox()" title="Tap to open">
+    <svg id="bow-svg" viewBox="0 0 60 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="16" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(-28 16 16)"/>
+      <ellipse cx="44" cy="16" rx="13" ry="8" fill="#b84d66" transform="rotate(28 44 16)"/>
+      <ellipse cx="30" cy="16" rx="8" ry="8" fill="#e8a0b4"/>
+      <ellipse cx="30" cy="16" rx="4.5" ry="4.5" fill="#b84d66"/>
+    </svg>
+    <div id="lid"><div id="lid-ribbon"></div></div>
+    <div id="box-body">
+      <div id="box-ribbon-v"></div>
+      <div id="box-ribbon-h"></div>
+    </div>
+  </div>
+  <div id="hint">tap to open ♡</div>
+</div>
 
-    function resize() { 
-      canvas.width = scene.offsetWidth; 
-      canvas.height = scene.offsetHeight; 
-    }
-    window.addEventListener('resize', resize);
-    resize();
+<script>
+const scene = document.getElementById('scene');
+const canvas = document.getElementById('fw');
+const ctx = canvas.getContext('2d');
+let hearts = [], animId = null, opened = false;
 
-    // Generate background stars
-    for (let i = 0; i < 65; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      const sz = Math.random() * 2.2 + 0.6;
-      s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random() * 100}%;top:${Math.random() * 78}%;animation-delay:${Math.random() * 4}s;animation-duration:${2 + Math.random() * 2.5}s`;
-      scene.insertBefore(s, scene.firstChild);
-    }
+function resize() { 
+  canvas.width = scene.offsetWidth; 
+  canvas.height = scene.offsetHeight; 
+}
+window.addEventListener('resize', resize);
+resize();
 
-    const PAL = ['#c9b8e8','#b8a3e0','#d4c8f0','#a98fd8','#ede8f8','#c9b8e8','#d4c8f0','#f0ecfc'];
+for (let i = 0; i < 65; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = Math.random()*2.2+0.6;
+  s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*78}%;animation-delay:${Math.random()*4}s;animation-duration:${2+Math.random()*2.5}s`;
+  scene.insertBefore(s, scene.firstChild);
+}
 
-    function spawnBurst(x, y) {
-      for (let i = 0; i < 62; i++) {
-        const angle = (Math.PI * 2 / 62) * i + Math.random() * 0.18;
-        const spd = 1.8 + Math.random() * 4.2;
-        const t = Math.random();
-        particles.push({
-          x, y, vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd - 1.2,
-          r: 2.5 + Math.random() * 3.5,
-          color: PAL[Math.floor(Math.random() * PAL.length)],
-          life: 1, decay: 0.008 + Math.random() * 0.008,
-          shape: t > 0.6 ? 'heart' : t > 0.35 ? 'circle' : 'rect',
-          rot: Math.random() * Math.PI * 2, rotV: (Math.random() - 0.5) * 0.13
-        });
-      }
-    }
+const COLORS = ['#f4c0d1','#e8a0b4','#c2546e','#d4c8f0','#c9b8e8','#b8a3e0','#993556','#fde8f0','#fff0f8'];
 
-    function drawHeart(x, y, r) {
-      ctx.save(); 
-      ctx.translate(x, y);
-      ctx.beginPath();
-      ctx.moveTo(0, -r * 0.5);
-      ctx.bezierCurveTo(r * 0.6, -r * 1.2, r * 1.4, 0, 0, r);
-      ctx.bezierCurveTo(-r * 1.4, 0, -r * 0.6, -r * 1.2, 0, -r * 0.5);
-      ctx.fill(); 
-      ctx.restore();
-    }
+function spawnHeart() {
+  const x = Math.random() * canvas.width;
+  const size = 8 + Math.random() * 18;
+  hearts.push({
+    x,
+    y: canvas.height + size,
+    size,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    speed: 0.6 + Math.random() * 1.4,
+    drift: (Math.random() - 0.5) * 0.6,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.02 + Math.random() * 0.03,
+    alpha: 0.55 + Math.random() * 0.45,
+    fadeStart: 80 + Math.random() * 60
+  });
+}
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles = particles.filter(p => p.life > 0);
-      for (const p of particles) {
-        ctx.save();
-        ctx.globalAlpha = Math.max(0, p.life * p.life);
-        ctx.fillStyle = p.color;
-        if (p.shape === 'heart') drawHeart(p.x, p.y, p.r);
-        else if (p.shape === 'circle') { 
-          ctx.beginPath(); 
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); 
-          ctx.fill(); 
-        } else { 
-          ctx.translate(p.x, p.y); 
-          ctx.rotate(p.rot); 
-          ctx.fillRect(-p.r * 0.4, -p.r, p.r * 0.8, p.r * 2); 
-        }
-        ctx.restore();
-        p.x += p.vx; 
-        p.y += p.vy; 
-        p.vy += 0.06; 
-        p.vx *= 0.988;
-        p.life -= p.decay; 
-        p.rot += p.rotV;
-      }
-      if (particles.length > 0) requestAnimationFrame(animate);
-    }
+function drawHeart(x, y, r, color, alpha) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = color;
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.moveTo(0, -r * 0.5);
+  ctx.bezierCurveTo(r*0.6, -r*1.2, r*1.4, 0, 0, r);
+  ctx.bezierCurveTo(-r*1.4, 0, -r*0.6, -r*1.2, 0, -r*0.5);
+  ctx.fill();
+  ctx.restore();
+}
 
-    function launch() {
-      const w = canvas.width, h = canvas.height;
-      [[w * .18, h * .2], [w * .5, h * .1], [w * .82, h * .2], [w * .33, h * .3], [w * .67, h * .27]]
-        .forEach(([x, y], i) => setTimeout(() => { spawnBurst(x, y); animate(); }, i * 160));
-      
-      setTimeout(() => { 
-        spawnBurst(w * .1, h * .16); 
-        spawnBurst(w * .9, h * .16); 
-        spawnBurst(w * .5, h * .07); 
-        animate(); 
-      }, 1000);
-      
-      setTimeout(() => { 
-        spawnBurst(w * .28, h * .13); 
-        spawnBurst(w * .72, h * .13); 
-        animate(); 
-      }, 1800);
-      
-      setTimeout(() => { 
-        spawnBurst(w * .5, h * .17); 
-        animate(); 
-      }, 2500);
-    }
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  hearts = hearts.filter(h => h.y > -h.size * 2);
+  for (const h of hearts) {
+    h.wobble += h.wobbleSpeed;
+    h.x += h.drift + Math.sin(h.wobble) * 0.5;
+    h.y -= h.speed;
+    const distFromTop = Math.max(0, h.fadeStart - (-h.y + canvas.height - h.fadeStart));
+    const fade = Math.min(1, (canvas.height - h.y) / h.fadeStart);
+    drawHeart(h.x, h.y, h.size, h.color, h.alpha * (1 - Math.max(0, fade - 0.2)));
+  }
+  animId = requestAnimationFrame(animate);
+}
 
-    function openBox() {
-      if (opened) return;
-      opened = true; 
-      resize();
-      document.getElementById('lid').classList.add('open');
-      document.getElementById('hint').style.opacity = '0';
-      setTimeout(() => document.getElementById('message').classList.add('show'), 80);
-      setTimeout(launch, 360);
-    }
-  </script>
+function startHearts() {
+  animate();
+  let count = 0;
+  const burst = setInterval(() => {
+    const batch = count < 10 ? 4 : 2;
+    for (let i = 0; i < batch; i++) spawnHeart();
+    count++;
+    if (count > 80) clearInterval(burst);
+  }, 120);
+  setInterval(() => spawnHeart(), 300);
+}
+
+function openBox() {
+  if (opened) return;
+  opened = true;
+  resize();
+  document.getElementById('lid').classList.add('open');
+  document.getElementById('hint').style.opacity = '0';
+  setTimeout(() => document.getElementById('message').classList.add('show'), 80);
+  setTimeout(startHearts, 380);
+}
+</script>
+
 </body>
 </html>
